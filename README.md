@@ -96,7 +96,7 @@ Each record represents **one student enrollment instance**.
 
 *Snapshot of the dataset after initial load (used instead of an ERD).*
 
-![Dataset Snapshot](./Visuals/trapped_records.png)
+![Dataset Snapshot](student-enrollment-data-cleaning/Student_Enrollment_data-cleaning/Visuals/trapped_records.png)
 ---
 
 ## Key Columns Overview
@@ -175,17 +175,17 @@ The pipeline focuses on:
 
 ## Data Cleaning Approach
 
-![Project Workflow](./Visuals/Project%20Workflow.png)
+![Project Workflow](student-enrollment-data-cleaning/Student_Enrollment_data-cleaning/Visuals/Project%20Workflow.png)
 
 ---
 
 ### Before Cleaning
 
-![Before Cleaning](./Visuals/bar-graph-initial_data.png)
+![Before Cleaning](student-enrollment-data-cleaning/Student_Enrollment_data-cleaning/Visuals/bar-graph-initial_data.png)
 
 ### After Cleaning
 
-![After Cleaning](./Visuals/bar-graph-final_data.png)
+![After Cleaning](student-enrollment-data-cleaning/Student_Enrollment_data-cleaning/Visuals/bar-graph-final_data.png)
 
 These visualizations illustrate how the cleaning pipeline **reduced missing values and improved overall dataset completeness**.
 ---
@@ -200,7 +200,7 @@ Instead of describing issues abstractly, this section presents **dataset snapsho
 
 Several records stored **multiple attributes inside the `student_id` column** using the `|` separator.
 
-![Trapped Records](./Visuals/trapped_records.png)
+![Trapped Records](student-enrollment-data-cleaning/Student_Enrollment_data-cleaning/Visuals/trapped_records.png)
 
 ### Example Record
 
@@ -227,9 +227,8 @@ These values needed to be **split into separate columns**.
 
 Some records stored **gender and age together**.
 
-![Age Issue 1](./Visuals/age-incosistency_1.png)  
-![Age Issue 2](./Visuals/age-incosistency_2.png)
-
+![Age Issue 1](student-enrollment-data-cleaning/Student_Enrollment_data-cleaning/Visuals/age-incosistency_1.png)  
+![Age Issue 2](student-enrollment-data-cleaning/Student_Enrollment_data-cleaning/Visuals/age-incosistency_2.png)
 ### Example
 
 | first_name | gender | age |
@@ -244,8 +243,7 @@ This required **extracting age values and standardizing gender**.
 
 Course values appeared in **multiple formats**.
 
-![Course Issues](./Visuals/courses_incosistency.png)
-
+![Course Issues](student-enrollment-data-cleaning/Student_Enrollment_data-cleaning/Visuals/courses_incosistency.png)
 These values needed to be **standardized into consistent course names**.
 
 ---
@@ -254,8 +252,7 @@ These values needed to be **standardized into consistent course names**.
 
 Enrollment dates appeared in **multiple inconsistent formats**.
 
-![Enrollment Date Issues](./Visuals/enrollment_date-unstandardized.png)
-
+![Enrollment Date Issues](student-enrollment-data-cleaning/Student_Enrollment_data-cleaning/Visuals/enrollment_date-unstandardized.png)
 Dates were standardized to:
 
 
@@ -268,8 +265,7 @@ YYYY-MM-DD
 
 Financial values included **currency symbols embedded within numeric values**.
 
-![Payment Issues](./Visuals/total_payments_error.png)
-
+![Payment Issues](student-enrollment-data-cleaning/Student_Enrollment_data-cleaning/Visuals/total_payments_error.png)
 ### Example
 
 
