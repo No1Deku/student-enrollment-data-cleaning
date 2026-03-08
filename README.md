@@ -96,7 +96,7 @@ Each record represents **one student enrollment instance**.
 
 *Snapshot of the dataset after initial load (used instead of an ERD).*
 
-![Dataset Snapshot](student-enrollment-data-cleaning/Student_Enrollment_data-cleaning/Visuals/trapped_records.png)
+![Dataset Snapshot](Student_Enrollment_data-cleaning/Visuals/trapped_records.png)
 ---
 
 ## Key Columns Overview
