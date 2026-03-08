@@ -26,9 +26,6 @@
 
 # 1. Project Overview
 
-## Title
-
-**Student Enrollment Records Data Cleaning Project**
 
 ---
 
