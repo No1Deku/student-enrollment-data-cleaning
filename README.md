@@ -1,4 +1,4 @@
-<img width="752" height="431" alt="image" src="https://github.com/user-attachments/assets/00a86567-7ca6-4eab-abe2-ea015eb81346" /># Student Enrollment Records – Data Cleaning & Standardization
+# Student Enrollment Records – Data Cleaning & Standardization
 
 **Tags:**  
 ![Data Cleaning](https://img.shields.io/badge/Project-Data_Cleaning-blue)
