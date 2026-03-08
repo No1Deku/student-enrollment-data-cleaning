@@ -1,7 +1,12 @@
 # Student Enrollment Records – Data Cleaning & Standardization
 
 **Tags:**  
-`data-cleaning` `education` `python` `sql` `duckdb` `data-quality`
+![Data Cleaning](https://img.shields.io/badge/Project-Data_Cleaning-blue)
+![Education](https://img.shields.io/badge/Domain-Education-orange)
+![SQL](https://img.shields.io/badge/Tech-SQL-green)
+![Python](https://img.shields.io/badge/Tech-Python-yellow)
+![DuckDB](https://img.shields.io/badge/Database-DuckDB-purple)
+![Data Quality](https://img.shields.io/badge/Focus-Data_Quality-red)
 
 ---
 
