@@ -227,8 +227,10 @@ These values needed to be **split into separate columns**.
 
 Some records stored **gender and age together**.
 
-![Age Issue 1](Student_Enrollment_data-cleaning/Visuals/age-incosistency_1.png)
-![Age Issue 2](Student_Enrollment_data-cleaning/Visuals/age-incosistency_2.png)
+<div style="display: flex; gap: 20px; align-items: center;">
+  <img src="Student_Enrollment_data-cleaning/Visuals/age-incosistency_1.png" alt="Age Issue 1" width="45%">
+  <img src="Student_Enrollment_data-cleaning/Visuals/age-incosistency_2.png" alt="Age Issue 2" width="45%">
+</div>
 ### Example
 
 | first_name | gender | age |
