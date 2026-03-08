@@ -283,8 +283,7 @@ The full cleaning pipeline is implemented in the project notebook.
 
 📓 **Notebook Location**
 
-`Student_Enrollment_data-cleaning/Data-cleaning-Student_Records.ipynb`
-
+[Open Notebook](Student_Enrollment_data-cleaning/Data-cleaning-Student_Records.ipynb)
 The notebook contains:
 
 - SQL transformation steps  
