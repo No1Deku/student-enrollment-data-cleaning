@@ -1,299 +1,372 @@
-Student Enrollment Records – Data Cleaning & Standardization
+# Student Enrollment Records – Data Cleaning & Standardization
 
-Tags:
-data-cleaning education python sql duckdb data-quality
+**Tags:**  
+`data-cleaning` `education` `python` `sql` `duckdb` `data-quality`
 
-Table of Contents
+---
 
-Project Overview
+# Table of Contents
 
-Dataset Description
+- [1. Project Overview](#1-project-overview)
+- [Dataset Description](#dataset-description)
+- [2. Data Structure Overview](#2-data-structure-overview)
+- [3. Executive Summary](#3-executive-summary)
+- [4. Insights Deep Dive (Dataset Evidence)](#4-insights-deep-dive-dataset-evidence)
+- [5. Data Cleaning Pipeline](#5-data-cleaning-pipeline)
+- [6. Consolidations](#6-consolidations)
+- [7. Project Deliverables](#7-project-deliverables)
+- [8. Key Takeaways](#8-key-takeaways)
 
-Data Structure Overview
+---
 
-Executive Summary
+# 1. Project Overview
 
-Insights Deep Dive (Dataset Evidence)
+## Title
 
-Data Cleaning Pipeline
+**Student Enrollment Records Data Cleaning Project**
 
-Consolidations
+---
 
-Project Deliverables
+## Project Context
 
-Key Takeaways
+This project was commissioned by the **Education Administration Department**, which maintains student enrollment records across multiple academic programs.
 
-1. Project Overview
-Title
+The dataset used for reporting and administrative tracking was found to contain **significant data quality issues caused by manual entry processes**. These issues included:
 
-Student Enrollment Records Data Cleaning Project
+- inconsistent formatting  
+- missing values  
+- multiple attributes stored in a single column  
 
-Project Context
+Administration required the dataset to be **cleaned, standardized, and structured according to defined business rules**.
 
-This project was commissioned by the Education Administration Department, which maintains student enrollment records across multiple academic programs.
+---
 
-The dataset used for reporting and administrative tracking was found to contain significant data quality issues caused by manual entry processes. These issues included inconsistent formatting, missing values, and multiple attributes stored in a single column.
+## Project Goal
 
-Administration required the dataset to be cleaned, standardized, and structured according to defined business rules.
+The objective of this project was to design and implement a **structured data-cleaning pipeline** to transform the dataset into a **reliable and analysis-ready format**.
 
-Project Goal
+### Key Business Rules
 
-The objective of this project was to design and implement a structured data-cleaning pipeline to transform the dataset into a reliable and analysis-ready format.
+| Business Rule | Description |
+|---|---|
+| Enrollment Date Format | `enrollment_date` must follow the **YYYY-MM-DD** format |
+| Gender Standardization | `gender` must be standardized to **M or F** |
+| Payment Format | `total_payments` must store **numeric values only**, with currency symbols extracted |
+| Data Normalization | Fields containing **trapped data** must be separated into correct columns |
+| Student Identifier | Every record must contain a **valid `student_id`** |
 
-Key business rules provided by the administration included:
+---
 
-Business Rule	Description
-Enrollment Date Format	enrollment_date must follow the YYYY-MM-DD format
-Gender Standardization	gender must be standardized to M or F
-Payment Format	total_payments must store numeric values only, with currency symbols extracted
-Data Normalization	Fields containing trapped data must be separated into correct columns
-Student Identifier	Every record must contain a valid student_id
-Dataset Description
+# Dataset Description
 
-The dataset contains student enrollment records used by the education administration for tracking:
+The dataset contains **student enrollment records** used by the education administration for tracking:
 
-student registrations
+- student registrations  
+- course enrollment  
+- payment information  
+- demographic attributes  
 
-course enrollment
+The raw dataset contained **structural inconsistencies**, including:
 
-payment information
+- merged columns  
+- inconsistent formatting  
+- missing values  
+- mixed datatypes  
 
-demographic attributes
+These issues required a **structured data cleaning workflow** before the dataset could be used reliably.
 
-The raw dataset contained structural inconsistencies including:
+---
 
-merged columns
+# 2. Data Structure Overview
 
-inconsistent formatting
+## Dataset Overview
 
-missing values
+This dataset represents **student enrollment records** used by the education administration department to track **course participation and payments**.
 
-mixed datatypes
+Each record represents **one student enrollment instance**.
 
-These issues required a structured data cleaning workflow before the dataset could be used reliably.
+---
 
-2. Data Structure Overview
-Dataset Overview
+## Dataset Snapshot
 
-This dataset represents student enrollment records used by the education administration department to track course participation and payments.
+*Snapshot of the dataset after initial load (used instead of an ERD).*
 
-Each record represents one student enrollment instance.
+![Dataset Snapshot](./visuals/bar-graph-initial_data.png)
 
-Dataset Snapshot
+---
 
-Snapshot of the dataset after initial load (used instead of ERD)
+## Key Columns Overview
 
-Key Columns Overview
-Column Name	Purpose / Notes
-student_id	Unique identifier for each student, standardized and validated
-first_name	Student first name
-last_name	Student last name
-age	Numeric age, standardized
-gender	Uppercase M / F
-course	Course name cleaned and standardized
-enrollment_date	Standardized to YYYY-MM-DD
-total_payments	Numeric value only; currency captured separately
-currency	Extracted from total_payments
-3. Executive Summary
+| Column Name | Purpose / Notes |
+|---|---|
+| student_id | Unique identifier for each student, standardized and validated |
+| first_name | Student first name |
+| last_name | Student last name |
+| age | Numeric age, standardized |
+| gender | Uppercase `M` / `F` |
+| course | Course name cleaned and standardized |
+| enrollment_date | Standardized to `YYYY-MM-DD` |
+| total_payments | Numeric value only; currency captured separately |
+| currency | Extracted from `total_payments` |
 
-During the initial inspection of the dataset, several major data quality issues were discovered.
+---
 
-Major Observations
-Large amounts of missing data
+# 3. Executive Summary
 
-Many records contained very limited information, with some rows missing up to ~80% of the expected attributes.
+During the **initial inspection of the dataset**, several major **data quality issues** were discovered.
 
-Uneven data distribution
+---
 
-A small subset of records contained most of the usable information, while the majority of records were partially incomplete.
+## Major Observations
 
-Trapped or concatenated data
+### Large Amounts of Missing Data
 
-Multiple attributes were stored in a single column, particularly within the student_id field.
+Many records contained **very limited information**, with some rows missing **up to ~80% of the expected attributes**.
 
-Combined attributes
+---
 
-Some records stored gender and age together, such as:
+### Uneven Data Distribution
+
+A small subset of records contained **most of the usable information**, while the majority of records were **partially incomplete**.
+
+---
+
+### Trapped or Concatenated Data
+
+Multiple attributes were stored in **a single column**, particularly within the **`student_id` field**.
+
+---
+
+### Combined Attributes
+
+Some records stored **gender and age together**, such as:
+
 
 M 24
-Inconsistent formats
 
-Course names, payment values, and enrollment dates were entered inconsistently.
 
-These issues made the dataset unsuitable for reporting or analysis in its raw form.
+---
 
-Cleaning Strategy
+### Inconsistent Formats
 
-To address these issues, I designed a stepwise data cleaning pipeline.
+Course names, payment values, and enrollment dates were **entered inconsistently**.
+
+These issues made the dataset **unsuitable for reporting or analysis in its raw form**.
+
+---
+
+## Cleaning Strategy
+
+To address these issues, a **stepwise data cleaning pipeline** was designed.
 
 The pipeline focuses on:
 
-Identifying trapped or misplaced data
+- identifying **trapped or misplaced data**  
+- distributing data into **appropriate columns**  
+- standardizing formats according to **business rules**  
+- resolving **missing or inconsistent values**  
+- restructuring the dataset for **easier reporting**
 
-Distributing data into appropriate columns
+---
 
-Standardizing formats according to business rules
+## Data Cleaning Approach
 
-Resolving missing or inconsistent values
+![Project Workflow](./visuals/Project%20Workflow.png)
 
-Restructuring the dataset for easier reporting
+---
 
-Data Cleaning Approach
+### Before Cleaning
 
-Before Cleaning
+![Before Cleaning](./visuals/bar-graph-initial_data.png)
 
-After Cleaning
+### After Cleaning
 
-These visualizations illustrate how the cleaning pipeline reduced missing values and improved overall dataset completeness.
+![After Cleaning](./visuals/bar-graph-final_data.png)
 
-4. Insights Deep Dive (Dataset Evidence)
+These visualizations illustrate how the cleaning pipeline **reduced missing values and improved overall dataset completeness**.
 
-Instead of describing issues abstractly, this section presents actual dataset snapshots that reveal the problems identified during data inspection.
+---
 
-Trapped Data in student_id
+# 4. Insights Deep Dive (Dataset Evidence)
 
-Several records stored multiple attributes inside the student_id column using the | separator.
+Instead of describing issues abstractly, this section presents **dataset snapshots that reveal the problems identified during inspection**.
 
-Example record:
+---
+
+## Trapped Data in `student_id`
+
+Several records stored **multiple attributes inside the `student_id` column** using the `|` separator.
+
+![Trapped Records](./visuals/trapped_records.png)
+
+### Example Record
+
 
 1032|John|Doe|21|M|Data S|2023-01-12|$2000
 
+
 This single value contains:
 
-student id
+- student id  
+- first name  
+- last name  
+- age  
+- gender  
+- course  
+- enrollment date  
+- payment value  
 
-first name
+These values needed to be **split into separate columns**.
 
-last name
+---
 
-age
+## Gender and Age Combined
 
-gender
+Some records stored **gender and age together**.
 
-course
+![Age Issue 1](./visuals/age-incosistency_1.png)
 
-enrollment date
+![Age Issue 2](./visuals/age-incosistency_2.png)
 
-payment value
+### Example
 
-These values needed to be split into separate columns.
+| first_name | gender | age |
+|---|---|---|
+| John | M 24 | NULL |
 
-Gender and Age Combined
+This required **extracting age values and standardizing gender**.
 
-Some records stored gender and age together.
+---
 
-Example:
+## Course Naming Inconsistencies
 
-first_name	gender	age
-John	M 24	NULL
+Course values appeared in **multiple formats**.
 
-This required extracting age values and standardizing gender.
-
-Course Naming Inconsistencies
-
-Course values appeared in multiple formats.
+![Course Issues](./visuals/courses_incosistency.png)
 
 Examples:
+
 
 Data S
 Web
 Machine
 
-These values needed to be standardized into consistent course names.
 
-Enrollment Date Formatting Issues
+These values needed to be **standardized into consistent course names**.
 
-Enrollment dates appeared in multiple inconsistent formats.
+---
+
+## Enrollment Date Formatting Issues
+
+Enrollment dates appeared in **multiple inconsistent formats**.
+
+![Enrollment Date Issues](./visuals/enrollment_date-unstandardized.png)
 
 Dates were standardized to:
 
-YYYY-MM-DD
-Payment Values Mixed With Currency
 
-Financial values included currency symbols embedded within numeric values.
+YYYY-MM-DD
+
+
+---
+
+## Payment Values Mixed With Currency
+
+Financial values included **currency symbols embedded within numeric values**.
+
+![Payment Issues](./visuals/total_payments_error.png)
 
 Example:
+
 
 $2000
 €1500
 ?2099
 
-To make the data usable for calculations, currency symbols needed to be separated from numeric values.
 
-5. Data Cleaning Pipeline
+To make the data usable for calculations, **currency symbols needed to be separated from numeric values**.
 
-The full cleaning pipeline is implemented in the project notebook:
+---
 
-📓 Notebook:
+# 5. Data Cleaning Pipeline
+
+The full cleaning pipeline is implemented in the project notebook.
+
+📓 **Notebook Location**
+
+
 Student_Enrollment_data-cleaning/records-cleaning.ipynb
+
 
 The notebook contains:
 
-SQL transformation steps
+- SQL transformation steps  
+- DuckDB queries  
+- data validation checks  
+- cleaning workflow documentation  
 
-DuckDB queries
+This notebook represents the **complete reproducible pipeline used to clean the dataset**.
 
-data validation checks
+---
 
-cleaning workflow documentation
+# 6. Consolidations
 
-This notebook represents the complete reproducible pipeline used to clean the dataset.
+During the **final stage of cleaning**, several structural adjustments were made.
 
-6. Consolidations
+---
 
-During the final stage of cleaning, several structural adjustments were made.
+## Column Changes
 
-Column Changes
-Added Columns
+### Added Columns
 
-currency
+- `currency`  
+- `display_name`  
+- `id_status`
 
-display_name
+### Removed / Consolidated Columns
 
-id_status
-
-Removed / Consolidated Columns
-
-first_name
-
-last_name
+- `first_name`  
+- `last_name`
 
 These were replaced with a new column:
 
+
 display_name = first_name + last_name
-Reason for Consolidation
 
-Name values were inconsistently distributed:
 
-Some records had only a first name
+---
 
-Some records stored multiple names in one field
+## Reason for Consolidation
 
-Some last names were missing
+Name values were **inconsistently distributed**:
 
-Using display_name provided a clean reporting-friendly placeholder without introducing ambiguity.
+- some records had **only a first name**  
+- some records stored **multiple names in one field**  
+- some **last names were missing**
 
-Remaining Limitations
+Using `display_name` provided a **clean reporting-friendly placeholder without introducing ambiguity**.
 
-This cleaning process significantly improved the dataset, but it does not fully resolve every underlying issue.
+---
+
+## Remaining Limitations
+
+This cleaning process significantly improved the dataset, but it **does not fully resolve every underlying issue**.
 
 Some column overlaps remain due to:
 
-inconsistent original entry
+- inconsistent original entry  
+- incomplete records  
+- ambiguous name structures  
 
-incomplete records
+These issues were adjusted for where possible but ideally should be addressed **at the source system during data entry**.
 
-ambiguous name structures
+---
 
-These issues were adjusted for where possible, but ideally should be addressed at the source system during data entry.
+# 7. Project Deliverables
 
-7. Project Deliverables
-Outputs
+## Outputs
 
-Cleaned dataset
-
-SQL cleaning scripts
-
-Jupyter Notebook workflow
-
-Data quality visualizations
+- Cleaned dataset  
+- SQL cleaning scripts  
+- Jupyter Notebook workflow  
+- Data quality visualizations  
