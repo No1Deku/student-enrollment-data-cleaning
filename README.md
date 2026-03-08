@@ -1,4 +1,4 @@
-# Student Enrollment Records – Data Cleaning & Standardization
+<img width="752" height="431" alt="image" src="https://github.com/user-attachments/assets/00a86567-7ca6-4eab-abe2-ea015eb81346" /># Student Enrollment Records – Data Cleaning & Standardization
 
 **Tags:**  
 ![Data Cleaning](https://img.shields.io/badge/Project-Data_Cleaning-blue)
@@ -96,8 +96,7 @@ Each record represents **one student enrollment instance**.
 
 *Snapshot of the dataset after initial load (used instead of an ERD).*
 
-![Dataset Snapshot](./visuals/bar-graph-initial_data.png)
-
+![Dataset Snapshot](./Visuals/trapped_records.png)
 ---
 
 ## Key Columns Overview
@@ -176,20 +175,19 @@ The pipeline focuses on:
 
 ## Data Cleaning Approach
 
-![Project Workflow](./visuals/Project%20Workflow.png)
+![Project Workflow](./Visuals/Project%20Workflow.png)
 
 ---
 
 ### Before Cleaning
 
-![Before Cleaning](./visuals/bar-graph-initial_data.png)
+![Before Cleaning](./Visuals/bar-graph-initial_data.png)
 
 ### After Cleaning
 
-![After Cleaning](./visuals/bar-graph-final_data.png)
+![After Cleaning](./Visuals/bar-graph-final_data.png)
 
 These visualizations illustrate how the cleaning pipeline **reduced missing values and improved overall dataset completeness**.
-
 ---
 
 # 4. Insights Deep Dive (Dataset Evidence)
@@ -202,7 +200,7 @@ Instead of describing issues abstractly, this section presents **dataset snapsho
 
 Several records stored **multiple attributes inside the `student_id` column** using the `|` separator.
 
-![Trapped Records](./visuals/trapped_records.png)
+![Trapped Records](./Visuals/trapped_records.png)
 
 ### Example Record
 
@@ -229,15 +227,14 @@ These values needed to be **split into separate columns**.
 
 Some records stored **gender and age together**.
 
-![Age Issue 1](./visuals/age-incosistency_1.png)
-
-![Age Issue 2](./visuals/age-incosistency_2.png)
+![Age Issue 1](./Visuals/age-incosistency_1.png)  
+![Age Issue 2](./Visuals/age-incosistency_2.png)
 
 ### Example
 
 | first_name | gender | age |
-|---|---|---|
-| John | M 24 | NULL |
+|------------|--------|-----|
+| John       | M 24   | NULL |
 
 This required **extracting age values and standardizing gender**.
 
@@ -247,15 +244,7 @@ This required **extracting age values and standardizing gender**.
 
 Course values appeared in **multiple formats**.
 
-![Course Issues](./visuals/courses_incosistency.png)
-
-Examples:
-
-
-Data S
-Web
-Machine
-
+![Course Issues](./Visuals/courses_incosistency.png)
 
 These values needed to be **standardized into consistent course names**.
 
@@ -265,7 +254,7 @@ These values needed to be **standardized into consistent course names**.
 
 Enrollment dates appeared in **multiple inconsistent formats**.
 
-![Enrollment Date Issues](./visuals/enrollment_date-unstandardized.png)
+![Enrollment Date Issues](./Visuals/enrollment_date-unstandardized.png)
 
 Dates were standardized to:
 
@@ -279,9 +268,9 @@ YYYY-MM-DD
 
 Financial values included **currency symbols embedded within numeric values**.
 
-![Payment Issues](./visuals/total_payments_error.png)
+![Payment Issues](./Visuals/total_payments_error.png)
 
-Example:
+### Example
 
 
 $2000
@@ -299,19 +288,16 @@ The full cleaning pipeline is implemented in the project notebook.
 
 📓 **Notebook Location**
 
-
-Student_Enrollment_data-cleaning/records-cleaning.ipynb
-
+`Student_Enrollment_data-cleaning/Data-cleaning-Student_Records.ipynb`
 
 The notebook contains:
 
 - SQL transformation steps  
 - DuckDB queries  
-- data validation checks  
-- cleaning workflow documentation  
+- Data validation checks  
+- Cleaning workflow documentation  
 
 This notebook represents the **complete reproducible pipeline used to clean the dataset**.
-
 ---
 
 # 6. Consolidations
