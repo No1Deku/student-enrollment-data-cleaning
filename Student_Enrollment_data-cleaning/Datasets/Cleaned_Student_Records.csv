@@ -1,0 +1,136 @@
+student_id,display_name,age,gender,course,enrollment_date,total_payments,currency
+101        ,John         Smith,22,M,Data Science,15-05-2022,1200,USD
+102        ,Emily        Johnson,24,F,Machine Learning,18-03-2022,1400,USD
+103        ,Michael      Williams,21,M,Data Science,25-06-2022,900,USD
+104        ,Sarah        Brown,23,F,Data Science,,1100,USD
+105        ,David        Davis,20,M,Web Development,10-09-2021,950,USD
+106        ,Jessica      Miller,25,F,Machine Learning,22-04-2022,1300,USD
+107        ,Brian        Wilson,19,M,Data Science,02-07-2022,1000,USD
+108        ,Amanda       Taylor,22,F,Machine Learning,15-08-2022,1200,USD
+109        ,William      Anderson,24,M,Data Science,10-01-2022,950,USD
+110        ,Olivia       Martinez,26,F,Data Science,28-02-2023,1150,USD
+111     ,Williams       Smith,22,M,Data Science,15-05-2022,1200,USD
+112     ,Emily        Emodi,24,F,Machine Learning,18-03-2022,1400,USD
+113      ,Esther     Adams,21,M,Data Science,25-06-2022,900,USD
+114       ,Sarah        Brown,23,F,Data Science,,1100,USD
+115      ,David        Davis,20,M,Web Development,10-09-2021,950,USD
+Temp-1,Davis Brown,25,,Data Analytics,05-09-2023,20000.00,
+Temp-17,Anita West,24,,Course No.4,05-01-2020,30000.00,
+Temp-3,Olawale Akintola,20,,Web Development,05-08-2021,30000.00,
+Temp-4,Wike Akintola,25,,,06-05-2022,36000.00,
+Temp-5,Leke,21,,,07-09-2023,40000.00,
+Temp-6,Ayodele,18,F,Machine Learning,08-09-2023,37440.00,
+Temp-7,,25,M,,09-09-2022,37488.00,
+Temp-8,,25,F,,10-09-2021,37497.60,
+Temp-9,,,,,11-09-2021,,
+101        ,Ethan        Miller,22,M,Data Science,15-05-2022,1200,USD
+102        ,Olivia       Johnson,24,F,Machine Learning,18-03-2022,1400,USD
+103        ,Noah         Williams,21,M,Data Science,25-06-2022,900,USD
+104        ,Emma         Brown,23,F,Data Science,,1100,USD
+105        ,Liam         Davis,20,M,Web Development,10-09-2021,950,USD
+106        ,Ava          Miller,25,F,Machine Learning,22-04-2022,1300,USD
+107        ,William      Wilson,19,M,Data Science,02-07-2022,1000,USD
+108        ,Sophia       Taylor,22,F,Machine Learning,15-08-2022,1200,USD
+109        ,James        Anderson,24,M,Data Science,10-01-2022,950,USD
+110        ,Isabella     Martinez,26,F,Data Science,28-02-2023,1150,USD
+500        ,Jackson      Murphy,21,M,Web Development,05-06-2023,1050,USD
+Temp-10,Joseph Williams,22,,Machine Learning,08-01-2023,20000,GBP
+Temp-11,Kylian Eden,78,M,Machine Learning,08-01-2024,20000,GBP
+Temp-12,Esther Naomi,21,F,Machine Learning,08-01-2022,20000,GBP
+Temp-13,Lay Martin,22,M,Web Development,08-01-2024,20000,GBP
+Temp-14,Rock Shy,23,M,Data Analytics,02-05-1999,,
+144     ,Ethe       Miller,22,M,Data Science,15-05-2022,1200,USD
+145      ,Olivian       Johnson,24,F,Machine Learning,18-03-2022,1400,USD
+146        ,Noah         Ray,21,M,Data Science,25-06-2022,900,USD
+147        ,Emma         Brown,23,F,Data Science,,1100,USD
+148        ,Liam         Davis,20,M,Web Development,10-09-2021,950,USD
+149        ,Ava          Miller,25,F,Machine Learning,22-04-2022,1300,USD
+155        ,Benjamin     Thompson,20,M,Web Development,14-11-2022,1050,USD
+156        ,Mia          Hernandez,23,F,Machine Learning,20-09-2022,1350,USD
+157        ,Alexander    Davis,21,M,Data Science,05-07-2022,920,USD
+114        ,Harper       Rodriguez,22,F,Data Science,,1120,USD
+115        ,Daniel       White,24,M,Web Development,30-10-2021,970,USD
+159        ,Emily        Murphy,21,F,Machine Learning,02-08-2023,1270,USD
+101        ,Ethan        Miller,22,M,Data Science,15-05-2022,1200,USD
+102        ,Olivia       Rayay,24,F,Machine Learning,18-03-2022,1400,USD
+103        ,Noah         Rock,21,M,Data Science,25-06-2022,900,USD
+104        ,Emma         Brown,23,F,Data Science,,1100,USD
+105        ,Liam         Davis,20,M,Web Development,10-09-2021,950,USD
+106        ,Ava          Miller,25,F,Machine Learning,22-04-2022,1300,USD
+107        ,William      Wilson,19,M,Data Science,02-07-2022,1000,USD
+108        ,Sophia       Taylor,22,F,Machine Learning,15-08-2022,1200,USD
+109        ,James        Anderson,24,M,Data Science,10-01-2022,950,USD
+110        ,Isabella     Martinez,26,F,Data Science,28-02-2023,1150,USD
+111        ,May     Thompson,20,M,Web Development,14-11-2022,1050,USD
+112        ,Mia          Hernandez,23,F,Machine Learning,20-09-2022,1350,USD
+113        ,Alexander    Davis,21,M,Data Science,05-07-2022,920,USD
+114        ,Harper       Rodriguez,22,F,Data Science,,1120,USD
+500        ,Emily        Murphy,21,F,Machine Learning,02-08-2023,1270,USD
+Temp-15,Ben     Thompson,20,M,Web Development,14-11-2022,1050,USD
+Temp-16,Mia          Hernandez,23,F,Machine Learning,20-09-2022,1350,USD
+Temp-62,Alexander    Davis,21,M,Data Science,05-07-2022,920,USD
+Temp-18,Adeniran Omoshola,22,F,Data Analytics,01-07-2021,50000,
+Temp-19,Iwueze Olaoluwa,23,M,Data Analytics,10-07-2020,55000,
+Temp-20,Faramotu Ismail,23,M,Data Analytics,16-07-2020,60500,
+Temp-21,Ifarele Adeola,23,M,Data Analytics,30-08-2022,66550,
+Temp-22,Folorunsho Dada,22,M,Web Development,01-07-2022,73205,
+Temp-23,Ikechukwu Victor,22,M,Web Development,01-07-2024,80526,
+Temp-24,Ahmed Mohammed,23,F,Web Development,19-07-2021,88578,
+Temp-25,Binta Sanni,22,F,Web Development,01-07-2021,97436,
+Temp-26,Chukwu Ike,22,M,Web Development,01-07-2022,107179,
+Temp-27,Ola Enioluwa,22,F,Machine Learning,01-01-2021,117897,
+Temp-28,Okafor Chike,23,M,Data Analytics,11-07-2020,129687,
+Temp-29,Chika Nwosu,23,F,Data Analytics,09-08-2021,142656,
+Temp-30,Eze Chinedu,22,M,Data Analytics,01-07-2023,156921,
+Temp-31,Adaobi Ekeinde,23,M,Data Analytics,09-07-2023,172614,
+Temp-32,Yusuf Ibrahim,22,M,Cyber Security,01-08-2005,189875,
+Temp-33,Amaka Azikiwe,23,M,Cyber Security,28-07-2023,208862,
+Temp-34,Onyeka Okonkwo,23,F,Cyber Security,16-07-2016,229749,
+Temp-35,Chioma Adebayo,22,F,Cyber Security,01-07-2022,252724,
+Temp-36,Ifeanyi Ekpo,22,F,Cyber Security,01-07-2022,277996,
+Temp-37,Ngozi Abubakar,20,F,Cyber Security,01-07-2024,305795,
+Temp-38,Abdul Nasiru,21,F,Cyber Security,01-07-2023,336375,
+Temp-39,Zainab Adeyemi,19,F,Cyber Security,01-07-2022,370012,
+Temp-40,Obinna Onwuka,25,F,Data Analytics,09-07-2023,407014,
+Temp-41,Amina Osagie,40,M,Data Analytics,01-08-2005,447715,
+Temp-42,Chinonso Uche,23,M,Data Analytics,28-07-2023,492487,
+Temp-43,Femi Abdullahi,22,M,Data Analytics,01-07-2023,541735,
+Temp-44,Halima Bakare,23,M,Data Analytics,17-07-2022,595909,
+Temp-45,Chibuzo Mohammed,21,M,Data Analytics,01-09-2020,655500,
+Temp-46,Oluchi Iwuoha,22,F,Machine Learning,31-01-2021,721050,
+Temp-47,Emeka Anikulapo,19,M,Data Analytics,19-07-2024,793155,
+Temp-2,Hadiza Ogundipe,18,M,Data Analytics,06-08-2022,872470,
+Temp-49,Adeola Okoro,,M,Web Development,12-07-2023,1055689,
+Temp-50,Idris Ibrahim,23,M,Web Development,31-08-2024,1161258,
+Temp-51,Chinyere Adeyemi,23,M,,07-10-2022,1277383,
+Temp-52,Umar Abdullahi,22,M,Web Development,01-07-2024,1405122,
+Temp-53,Nkem Adebayo,20,M,Web Development,21-07-2024,1545634,
+Temp-54,Ayodele Osagie,22,F,Machine Learning,30-01-2021,1700197,
+Temp-55,Chiwendu Ekpo,21,M,Machine Learning,30-01-2020,1870217,
+Temp-56,Fatima Azikiwe,22,F,Data Analytics,01-07-2021,2057239,
+Temp-57,Chukwudi Ekeinde,19,M,Cyber Security,28-08-2022,2262963,
+Temp-58,Kemi Uche,18,M,Cyber Security,06-07-2022,2489259,
+Temp-59,Jide Bakare,18,M,Cyber Security,02-09-2023,2738185,
+Temp-60,Adaobi Iwuoha,19,M,Cyber Security,06-08-2022,3012003,
+Temp-61,Suleiman Mohammed,23,M,Cyber Security,25-09-2020,3313204,
+Temp-48,Ifeoluwa Anikulapo,23,M,Cyber Security,31-08-2023,3644524,
+217       ,Chukwudi,22,M,Data Science,15-05-2022,1200,USD
+218      ,Ngozi        Eze,24,F,Machine Learning,18-03-2022,1400,USD
+219       ,Ifeoluwa     Adewale,21,M,Data Science,25-06-2022,900,USD
+220     ,Ada          Adeleke,23,F,Data Science,,1100,USD
+221    ,Kehinde      Bakare,20,M,Web Development,10-09-2021,950,USD
+222        ,Amara        Okonkwo,25,F,Machine Learning,22-04-2022,1300,USD
+223        ,Uche         Adebayo,19,M,Data Science,02-07-2022,1000,USD
+224      ,Nneka        Nwachukwu,22,F,Machine Learning,15-08-2022,1200,USD
+225        ,Emeka        Okafor,24,M,Data Science,10-01-2022,950,USD
+226       ,Chinyere     Nwosu,26,F,Data Science,28-02-2023,1150,USD
+227      ,Obinna       Onyekachi,20,M,Web Development,14-11-2022,1050,USD
+228       ,Chinwe       Okoye,23,F,Machine Learning,20-09-2022,1350,USD
+229        ,Ugochukwu    Okafor,21,M,Data Science,05-07-2022,920,USD
+230      ,Ijeoma       Uzoma,22,F,Data Science,,1120,USD
+231      ,Obi          Okonkwo,24,M,Web Development,30-10-2021,970,USD
+232        ,Amina        Adekunle,21,F,Machine Learning,12-08-2022,1270,USD
+234       ,Ibrahim      Okafor,22,M,Data Science,03-02-2022,950,USD
+235        ,Zainab       Abiodun,23,F,Web Development,21-07-2022,1050,USD
+236        ,Nasiru       Adebayo,24,M,Data Science,09-05-2022,1120,USD
+237       ,Aisha        Okonkwo,25,F,Machine Learning,15-01-2023,1300,USD
